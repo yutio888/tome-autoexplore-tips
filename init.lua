@@ -18,7 +18,7 @@
 -- Scott Bigham ("Zizzo")
 -- dsb-tome@killerbunnies.org
 
-long_name = "Autoexplore Stop Reason"
+long_name = "Autoexplore Stop Detailed Reason"
 short_name = "detailed_stop_reason"
 for_module = "tome"
 version = { 1, 7, 2 }
@@ -26,7 +26,7 @@ addon_version = { 1, 0, 0 }
 weight = 250
 author = { 'yutio888' }
 homepage = ''
-description = [[List more infomation when autoexplore stop for monster nearby.]]
+description = [[List more infomation when autoexplore stopped by monster nearby.]]
 tags = { 'autoexplore' }
 superload = true
 data = true
