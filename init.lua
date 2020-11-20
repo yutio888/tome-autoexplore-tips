@@ -15,18 +15,22 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- Scott Bigham ("Zizzo")
--- dsb-tome@killerbunnies.org
+-- yutio888
+-- yutio888@qq.com
 
-long_name = "Autoexplore Stop Detailed Reason"
-short_name = "detailed_stop_reason"
+long_name = "Improved Enemy UI"
+short_name = "improved_enemy_ui"
 for_module = "tome"
 version = { 1, 7, 2 }
 addon_version = { 1, 0, 0 }
 weight = 250
 author = { 'yutio888' }
 homepage = ''
-description = [[List more infomation when autoexplore stopped by monster nearby.]]
-tags = { 'autoexplore' }
+description = [[1. improve the default shockbolt of enemy, making them brighter and easier to find.
+2. when your rest/run/autoexplore got stopped with monsters nearby, you will see these monsters in combat log, with more detailed information.
+3. introduce a game option that you may shout when your rest/run/autoexplore stopped with monsters nearby.]]
+tags = { 'autoexplore', 'ui', 'enemy ui' }
 superload = true
 data = true
+hooks = true
+overload = true
