@@ -12,7 +12,12 @@ local function hostileCheck(self)
                     spot.entity:addParticles(engine.Particles.new("notice_enemy", 1))
                 end
                 if spot.actor and spot.actor.rank then
-                    local spotmsg = spot.name
+                    local spotmsg 
+                    if spot.actor.getDisplayString then
+                        spotmsg = spot.actor:getDisplayString() .. spot.actor.name
+                    else
+                        spotmsg = spot.actor.name
+                    end
                     local _, rank_color = spot.actor:TextRank()
                     if spot.actor.descriptor and spot.actor.descriptor.classes then
                         spotmsg = spotmsg .. "(" .. table.concat(table.ts(spot.actor.descriptor.classes or {}, "birth descriptor name"),",") .. ")"
