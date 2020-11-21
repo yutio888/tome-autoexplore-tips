@@ -2,12 +2,50 @@ local _M = loadPrevious(...)
 
 local Emote = require("engine.Emote")
 
+local possible_emote = {
+    [1] = {
+        [1] = _t"Help, I've found:"
+    },
+    [2] = {
+        [1] = _t"By all that is holy! Do you see that enemy over there:",
+        [2] = _t"There! A worthy foe:"
+    },
+    [3] = {
+        [1] = _t"I used to be an adventurer like you, then I met a monster like this:"
+    },
+    [4] = {
+        [1] = _t"Merciless monster:",
+        [2] = _t"Unexpected foe:"
+    },
+    [5] = {
+        [1] = _t"Just this:",
+        [2] = _t"Unbelievable, you do think monsters like this might beat me:",
+        [3] = _t"Are you telling me how to fight？",
+    }
+}
+
+local function getEmoteMsgs()
+    local shoutType = config.settings.tome.addon_detailed_stop_reason_allow_shout
+    if not shoutType or shoutType == 0 then
+        return ""
+    end
+    if not (type(shoutType) =="number") or shoutType > 5 or shoutType < 1 then
+        shoutType = rng.range(1, 5)
+    end
+    print("TEST", shoutType)
+    local msgs = possible_emote[shoutType]
+    local random = rng.range(1, #msgs)
+    print("TEST", random)
+    print("TEST", msgs[random])
+    return msgs[random]
+end
+
 local function hostileCheck(self)
     local spotted = self:spotHostiles()
     local biggest_monster = ""
     local biggest_rank = -1
     if #spotted > 0 then
-        local emote_msgs = _t"Help, I've found:"
+        local emote_msgs = getEmoteMsgs()
         local monster = 0
         local log_msgs = {}
         for _, spot in ipairs(spotted) do
@@ -56,7 +94,7 @@ local function hostileCheck(self)
                 game.logSeen(self, _t"You have found: "..msg)
             end
         end
-        if monster > 0 and config.settings.tome.addon_detailed_stop_reason_allow_shout then
+        if monster > 0 and config.settings.tome.addon_detailed_stop_reason_allow_shout and not (config.settings.tome.addon_detailed_stop_reason_allow_shout == 0) then
             self:setEmote(Emote.new(emote_msgs, 40, colors.WHITE, nil, {r=0.2, g=0.2, b=0.2}))
         end
         local dir = game.level.map:compassDirection(spotted[1].x - self.x, spotted[1].y - self.y)
