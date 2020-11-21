@@ -22,13 +22,14 @@ long_name = "Improved Enemy UI"
 short_name = "improved_enemy_ui"
 for_module = "tome"
 version = { 1, 7, 2 }
-addon_version = { 1, 0, 0 }
+addon_version = { 1, 0, 1 }
 weight = 250
 author = { 'yutio888' }
 homepage = ''
 description = [[1. improve the default shockbolt of enemy, making them brighter and easier to find.
 2. when your rest/run/autoexplore got stopped with monsters nearby, you will see these monsters in combat log, with more detailed information.
-3. introduce a game option that you may shout when your rest/run/autoexplore stopped with monsters nearby.]]
+3. introduce a game option that you may shout when your rest/run/autoexplore stopped with monsters nearby.
+4. introduce a game option making the default shockbolt shaking.]]
 tags = { 'autoexplore', 'ui', 'enemy ui' }
 superload = true
 data = true

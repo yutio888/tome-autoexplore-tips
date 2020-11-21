@@ -2,7 +2,7 @@ local _M = loadPrevious(...)
 local _bigTacticalFrame = _M.bigTacticalFrame
 function _M:bigTacticalFrame(x, y, w, h, zoom, on_map, tlx, tly)
     if not config.settings.tome.addon_detailed_stop_reason_big_frame then
-        _bigTacticalFrame(x, y, w, h, zoom, on_map, tlx, tly)
+        _bigTacticalFrame(self, x, y, w, h, zoom, on_map, tlx, tly)
         return
     end
     -- Tactical info
